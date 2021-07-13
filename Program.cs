@@ -8,7 +8,7 @@ namespace rdb_test
         static void Main(string[] args)
         {
             var basePath = Path.Combine(Path.GetTempPath(), "rdb_test");
-            Directory.Delete(basePath, true);
+            if(Directory.Exists(basePath)) Directory.Delete(basePath, true);
             Directory.CreateDirectory(basePath);
 
             var rocksDbPath = Path.Combine(basePath, "storage", nameof(RocksDbStorage));
